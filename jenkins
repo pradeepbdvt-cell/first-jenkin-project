@@ -1,12 +1,14 @@
 pipeline {
-  agent{
-     docker{image 'ubuntu:latest'}
- }
- stages {
-  stage ('test') {
-    steps {
-      sh 'node --version
-          }
-      }
+    agent {
+        docker { 
+            image 'node:18-bullseye' // This image already has Node.js installed
+        }
+    }
+    stages {
+        stage('test') {
+            steps {
+                sh 'node --version'
+            }
+        }
     }
 }
